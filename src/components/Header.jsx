@@ -18,6 +18,8 @@ export default function Header({}) {
 
     const handleButtonClick = () => {
       localStorage.clear
+      setTheme('light')
+      localStorage.setItem('theme', 'light')
     }
 
     return (
