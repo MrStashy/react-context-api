@@ -7,9 +7,12 @@ import user from "./assets/data/user.js";
 
 const TwitterContext = createContext();
 
+
 function App() {
+  const loadedTheme = localStorage.getItem('theme')
   const [tweets, setTweets] = useState(defaultTweets);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(loadedTheme || "light");
+
 
   useEffect(() => {
     theme === "light"
@@ -22,7 +25,7 @@ function App() {
       <div className="container">
         <Header />
         <Tweets />
-        <RightSide theme={theme} />
+        <RightSide />
       </div>
     </TwitterContext.Provider>
   );
